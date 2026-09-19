@@ -1,0 +1,13 @@
+services:
+  jenkins:
+    build: ./jenkins
+    container_name: jenkins-demo
+    ports:
+      - "9090:8080"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      # Monta este proyecto para usarlo como repositorio local en la demo
+      - ./:/repo-demo:ro
+
+volumes:
+  jenkins_home:
